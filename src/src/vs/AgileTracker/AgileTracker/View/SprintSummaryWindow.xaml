@@ -1,0 +1,41 @@
+﻿<Window x:Class="AgileTracker.View.SprintSummaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgileTracker.View"
+        mc:Ignorable="d"
+        Title="Sprint Summary" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="StyleDict.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="60px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Need a list of tasks names here then when you click on one it will populate the stuff on the right-->
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Sprint Summary" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Content="Sprint Number:"/>
+            <Label Content="Project Name:"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0">
+            <TextBox x:Name="tb_sprintNum" Width="120" Margin="3" IsEnabled="False" HorizontalAlignment="Left"/>
+            <TextBox x:Name="tb_projName" Width="180" Margin="3" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <Label DockPanel.Dock="Top" Content="Sprint Information" FontSize="16" FontWeight="SemiBold"/>
+            <DataGrid x:Name="dgSprintInfo" ItemsSource="{Binding}" IsEnabled="False" Margin="3">
+                <DataGridTemplateColumn>
+                    
+                </DataGridTemplateColumn>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

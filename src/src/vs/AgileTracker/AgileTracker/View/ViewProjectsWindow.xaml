@@ -1,0 +1,42 @@
+﻿<Window x:Class="AgileTracker.View.ViewProjectsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgileTracker.View"
+        mc:Ignorable="d"
+        Title="Agile Tracker - Projects" Height="350" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary Source="StyleDict.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.65*"/>
+            <ColumnDefinition Width="0.35*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Viewing All Development Projects" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <DataGrid x:Name="dg_allProjects" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ProjDGCollection}" Margin="5,0,5,5" SelectedItem="{Binding SelectedProject}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Project Name" Width=".6*" Binding="{Binding ProjectName}"/>
+                <DataGridTextColumn Header="Creator" Width=".4*" Binding="{Binding Username}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DockPanel Grid.Row="1" Grid.Column="1" LastChildFill="False">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="5">
+                <Button x:Name="b_addProject" Content="Add New Project" Margin="3" Command="{Binding OpenAddNewProjectWindowCommand}"/>
+                <Button x:Name="b_viewProject" Content="View Existing Project" Margin="3" Command="{Binding OpenViewSelectedProjectWindowCommand}"/>
+                <Button x:Name="b_viewSummary" Content="View Project Summary" Margin="3"/>
+                
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" Margin="5">
+                <Button x:Name="b_deleteProject" Content="Delete Selected Project" Margin="3" Command="{Binding RemoveSelectedProjectCommand}"/>
+                <!--<Button x:Name="b_viewProject" Content="View Existing Project"/>-->
+                <!--<Button x:Name="b_deleteProject" Content="Delete Selected Project"/>-->
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

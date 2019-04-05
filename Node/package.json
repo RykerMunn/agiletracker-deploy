@@ -1,0 +1,25 @@
+{
+  "name": "gutecodierung-gmbh",
+  "version": "1.0.0",
+  "description": "Provides the npm modules required to interact with the AgileTracker software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/gutecodeirunggmbh/agiletracker-1.0.0.0.git"
+  },
+  "keywords": [
+    "mongodb",
+    "agiletracker"
+  ],
+  "author": "Gute Codierung GmbH",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/gutecodeirunggmbh/agiletracker-1.0.0.0#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13"
+  }
+}

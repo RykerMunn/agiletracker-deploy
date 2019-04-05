@@ -1,0 +1,1 @@
+mongodb://gcgmbhApiUser:afw0v9bXRybs9g8MWjhLJ0aOPp0MoFrRlASya0GVO522j+605PuTB9gFCduUrMrC@ec2-35-183-243-71.ca-central-1.compute.amazonaws.com:27017/devtest

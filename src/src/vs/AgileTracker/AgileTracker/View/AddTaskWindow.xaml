@@ -1,0 +1,71 @@
+﻿<Window x:Class="AgileTracker.View.AddTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgileTracker.View"
+        mc:Ignorable="d"
+        Title="AddTaskWindow" Height="600" Width="400"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="40px"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Header="Members" Margin="12.5, 12.5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+                <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10px">
+                    <StackPanel x:Name="sp_memberList" Margin="3px">
+                        <TextBox x:Name="tb_memberName0" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Grid.Row="0" Grid.Column="1" Width="80" Height="24" Content="Add Member" Click="onAddMemberClicked"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Header="Task Details" Margin="12.5, 12.5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.6*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DockPanel Grid.Row="0" Margin="10" LastChildFill="False">
+                    <StackPanel DockPanel.Dock="Top" Margin="10,5,5,20" Orientation="Horizontal">
+                        <TextBlock Margin="0,0,5,0">Task Is Complete:</TextBlock>
+                        <CheckBox x:Name="chk_taskDone"/>
+                    </StackPanel>
+                    <DockPanel LastChildFill="False">
+                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="10,0">
+                            <TextBlock Margin="0,0,5,0">Estimated Time</TextBlock>
+                            <TextBox x:Name="tb_estimatedTime" Width="50" Height="20"/>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="10,0">
+                            <TextBlock Margin="0,0,5,0">Actual Time</TextBlock>
+                            <TextBox x:Name="tb_actualTime" Width="50" Height="20"/>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel Grid.Row="1" Margin="5">
+                    <TextBlock DockPanel.Dock="Top">Task Details</TextBlock>
+                    <TextBox Margin="3" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                </DockPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

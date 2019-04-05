@@ -1,0 +1,43 @@
+﻿<Window x:Class="AgileTracker.View.ViewSelectedProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgileTracker.View"
+        mc:Ignorable="d"
+        Title="Agile Tracker - Projects - View Project" Height="350" Width="700">
+    <Window.Resources>
+        <ResourceDictionary Source="StyleDict.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Viewing " FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding SelectedProject.ProjectName}" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid x:Name="dg_allSprints" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding SprintDGCollection}" Margin="5,0,5,5" SelectedItem="{Binding SelectedSprint}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sprint Count" Width=".125*" Binding="{Binding SprintNumber}"/>
+                <DataGridTextColumn Header="Number of Tasks" Width=".125*" Binding="{Binding NumberOfTasks}"/>
+                <!--<DataGridTextColumn Header="Velocity" Width=".75*" Binding="{Binding ElementName=SelectedSprint, Path=Details}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <DockPanel Grid.Row="1" Grid.Column="1" LastChildFill="False">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="5">
+                <Button x:Name="b_addSprint" Content="Add New Sprint" Margin="3" Command="{Binding AddNewSprintCommand}"/>
+                <Button x:Name="b_viewSprint" Content="View Selected Sprint" Margin="3"/>
+                <Button x:Name="b_viewSummary" Content="Sprint Summary" Margin="3"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" Margin="5">
+                <Button x:Name="b_deleteSprint" Content="Delete Selected Sprint" Margin="3" Command="{Binding RemoveSelectedSprintCommand}"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
